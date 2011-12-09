@@ -7,7 +7,8 @@ $(document).ready(function(){
 		mouse = {
 			x: 0,
 			y: 0
-		};
+		},
+		collision = new Collision();
 		
 	canvasElement.appendTo('body');
 	
@@ -28,37 +29,41 @@ $(document).ready(function(){
 	
 	var player = {
 		color: "#0066CC",
-		x: 220,
-		y: 270,
-		offsetX: -16,
-		offsetY: -16, 
-		width: 32,
-		height: 32,
+		offset: {
+			x: 0,
+			y: 0	
+		},
+		radius: 30,
 		draw: function() {
+			canvas.beginPath();
 			canvas.fillStyle = this.color;
-			canvas.fillRect(this.x + this.offsetX, this.y + this.offsetY, this.width, this.height);
+			canvas.arc(this.offset.x, this.offset.y, this.radius, 0, Math.PI*2, true);
+			canvas.closePath();
+			canvas.fill(); 	
 		},
 		update: function() {
-			this.x = mouse.x;
-			this.y = mouse.y;
+			this.offset.x = mouse.x;
+			this.offset.y = mouse.y;
 		}
 	};
 	
 	var staticObject = {
 		color: "#A00",
-		x: 220,
-		y: 270,
-		offsetX: -32,
-		offsetY: -32, 
-		width: 64,
-		height: 64,
+		offset: {
+			x: 300,
+			y: 200	
+		},
+		radius: 40,
 		draw: function() {
+			canvas.beginPath();
 			canvas.fillStyle = this.color;
-			canvas.fillRect(this.x + this.offsetX, this.y + this.offsetY, this.width, this.height);
+			canvas.arc(this.offset.x, this.offset.y, this.radius, 0, Math.PI*2, true);
+			canvas.closePath();
+			canvas.fill(); 		
 		},
 		update: function() {
-			/*this.x = mouse.x;
-			this.y = mouse.y;*/
+			/*this.offset.x = mouse.x;
+			this.offset.y = mouse.y;*/
 		}
 	};
 	
@@ -72,7 +77,7 @@ $(document).ready(function(){
 			}
 		},
 		update: function() {
-			this.display = mouse.x > 50 && mouse.x < CANVAS_WIDTH - 50;
+			this.display = collision.circle_intersect(staticObject.offset, staticObject.radius, player.offset, player.radius);
 		}
 	};
 	
@@ -90,5 +95,5 @@ $(document).ready(function(){
 		staticObject.draw();
 		player.draw();
 	}
-
+	
 });
