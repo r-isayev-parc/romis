@@ -1,13 +1,13 @@
-var Collision = function() {
+п»їvar Collision = function() {
 	return {
 		circle_intersect: this.circle_intersect 
 	};
 };
 	
 Collision.prototype = {
-			
-	// возвращает true если окружности c центрами в с1 и с2 и
-	// радиусами r1 и r2 пересекаюстя, иначе - false
+
+	// РІРѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё РѕРєСЂСѓР¶РЅРѕСЃС‚Рё c С†РµРЅС‚СЂР°РјРё РІ СЃ1 Рё СЃ2 Рё
+	// СЂР°РґРёСѓСЃР°РјРё r1 Рё r2 РїРµСЂРµСЃРµРєР°СЋСЃС‚СЏ, РёРЅР°С‡Рµ - false			
 	circle_intersect: function(c1, r1, c2, r2) {
 		//$('#console').html(c1.x + ' ' + c1.y + ' ' + r1 + ' / ' + c2.x + ' ' + c2.y + ' ' + r2);
 		return Math.sqrt((c1.x - c2.x)*(c1.x - c2.x) + (c1.y - c2.y)*(c1.y - c2.y)) <= r1 + r2;

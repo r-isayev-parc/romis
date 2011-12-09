@@ -1,4 +1,4 @@
-$(document).ready(function(){
+п»ї$(document).ready(function(){
 	var CANVAS_WIDTH = 640,
 		CANVAS_HEIGHT = 480,
 		FPS = 30,
@@ -17,7 +17,7 @@ $(document).ready(function(){
 		draw();
 	}, 1000/FPS);
 	
-	// определяем координаты мыши на канве
+	// РѕРїСЂРµРґРµР»СЏРµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ РјС‹С€Рё РЅР° РєР°РЅРІРµ
 	canvasElement.bind('mousemove', function(e){
 		var offset = $(this).offset();
 		
