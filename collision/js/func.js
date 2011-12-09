@@ -72,7 +72,7 @@ $(document).ready(function(){
 			}
 		},
 		update: function() {
-			this.display = mouse.x > 100 && mouse.x < CANVAS_WIDTH - 100;
+			this.display = mouse.x > 50 && mouse.x < CANVAS_WIDTH - 50;
 		}
 	};
 	
