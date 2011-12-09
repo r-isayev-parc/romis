@@ -1,4 +1,4 @@
-﻿$(document).ready(function(){
+$(document).ready(function(){
 	var CANVAS_WIDTH = 640,
 		CANVAS_HEIGHT = 480,
 		FPS = 30,

@@ -1,4 +1,4 @@
-﻿unit Collision;
+unit Collision;
 
 interface
 

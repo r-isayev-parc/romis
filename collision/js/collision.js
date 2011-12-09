@@ -1,4 +1,4 @@
-﻿var Collision = function() {
+var Collision = function() {
 	return {
 		circle_intersect: this.circle_intersect 
 	};
